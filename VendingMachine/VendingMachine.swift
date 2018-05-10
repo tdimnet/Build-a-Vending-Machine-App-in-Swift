@@ -62,6 +62,22 @@ class PlistConverter {
     }
 }
 
+class InventoryUnarchiver {
+    static func vendingInventory(fromDictionary dictionary: [String: AnyObject]) -> [VendingSelection: VendingItem] {
+        var inventory: [VendingSelection: VendingItem] = [:]
+        
+        for (key, value) in dictionary {
+            if let itemDictionary = value as? [String: Any],
+                let price = itemDictionary["price"] as? Double,
+                let quantity = itemDictionary["quantity"] as? Int {
+                    let item = Item(price: price, quantity: quantity)
+            }
+        }
+        
+        return inventory
+    }
+}
+
 class FoodVendingMachine: VendingMachine {
     let selection: [VendingSelection] = [
         VendingSelection.soda,
