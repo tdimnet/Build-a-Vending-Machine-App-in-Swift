@@ -43,6 +43,14 @@ struct Item: VendingItem {
     var quantity: Int
 }
 
+class PlistConverter {
+    static func dictionary(fromFile name: String, ofType type: String) throws -> [String: AnyObject] {
+        guard let path = Bundle.main.path(forResource: name, ofType: type) else {
+            
+        }
+    }
+}
+
 class FoodVendingMachine: VendingMachine {
     let selection: [VendingSelection] = [
         VendingSelection.soda,
