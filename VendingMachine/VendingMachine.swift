@@ -45,6 +45,7 @@ protocol VendingMachine {
     init(inventory: [VendingSelection: VendingItem])
     func vend(selection: VendingSelection, quantity: Int) throws
     func deposit(_ amout: Double)
+    func item(forSelection selection: VendingSelection) -> VendingItem?
 }
 
 struct Item: VendingItem {
@@ -144,6 +145,10 @@ class FoodVendingMachine: VendingMachine {
     
     func deposit(_ amout: Double) {
         
+    }
+    
+    func item(forSelection selection: VendingSelection) -> VendingItem? {
+        return inventory[selection]
     }
 }
 
