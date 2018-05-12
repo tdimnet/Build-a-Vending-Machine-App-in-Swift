@@ -220,6 +220,7 @@
                         <outlet property="collectionView" destination="5AE-ym-lIo" id="uAz-ab-OqY"/>
                         <outlet property="priceLabel" destination="ead-0M-pYt" id="RTr-uD-kAc"/>
                         <outlet property="quantityLabel" destination="gcR-dM-thO" id="dcC-2b-chE"/>
+                        <outlet property="quantityStepper" destination="75s-Uj-ZkW" id="kIE-vN-IWH"/>
                         <outlet property="totalLabel" destination="voq-ob-7Sb" id="oHb-vP-v4a"/>
                     </connections>
                 </viewController>
