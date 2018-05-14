@@ -125,7 +125,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func showAlert() -> Void {
         let alertController: UIAlertController = UIAlertController(title: "Out of Stock", message: "This item is unavailable. Please make another selection", preferredStyle: .alert)
         
+        let okAction: UIAlertAction = UIAlertAction(title: "Ok", style: .default, handler: dismissAlert)
+        alertController.addAction(okAction)
+        
         present(alertController, animated: true, completion: nil)
+    }
+    
+    func dismissAlert(sender: UIAlertAction) -> Void {
+        updateDisplayWith(balance: 0, totalPrice: 0, itemPrice: 0, itemQuantity: 1)
     }
     
     // MARK: UICollectionViewDataSource
