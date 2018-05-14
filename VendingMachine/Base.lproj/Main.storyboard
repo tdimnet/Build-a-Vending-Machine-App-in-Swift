@@ -232,10 +232,10 @@
             </objects>
             <point key="canvasLocation" x="-407.19999999999999" y="136.28185907046478"/>
         </scene>
-        <!--View Controller-->
+        <!--Deposit Controller-->
         <scene sceneID="wiT-iW-cpQ">
             <objects>
-                <viewController id="u9f-pJ-oJ2" sceneMemberID="viewController">
+                <viewController id="u9f-pJ-oJ2" customClass="DepositController" customModule="VendingMachine" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="szo-le-Gev"/>
                         <viewControllerLayoutGuide type="bottom" id="njb-y5-r4t"/>
@@ -254,7 +254,7 @@
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Dismiss"/>
                                 <connections>
-                                    <action selector="purchase:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9JB-Os-KtB"/>
+                                    <action selector="dismiss:" destination="u9f-pJ-oJ2" eventType="touchUpInside" id="eAx-UF-XBj"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Funds successfully added!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAu-yg-tKw">
