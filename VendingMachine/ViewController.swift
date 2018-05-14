@@ -73,10 +73,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 try vendingMachine.vend(selection: currentSelection, quantity: Int(quantityStepper.value))
                 updateDisplayWith(balance: vendingMachine.amountDeposited, totalPrice: 0.00, itemPrice: 0, itemQuantity: 1)
             } catch VendingMachineError.outOfStock {
-                // FIXME: Error handling code
-                showAlert()
-            } catch {
-                
+                showAlertWith(title: "Out of Stock", message: "The item is unavailable. Please make another selection")
+            } catch VendingMachineError.invalidSelection {
+                showAlertWith(title: "Invalid Selection", message: "Please make another selection")
+            } catch VendingMachineError.insufficientFunds(let required) {
+                let message = "You need $\(required) to complete the transaction"
+                showAlertWith(title: "Insufficient Funds", message: message)
+            } catch let error {
+                fatalError("\(error)")
             }
             
             if let indexPath = collectionView.indexPathsForSelectedItems?.first {
@@ -122,10 +126,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
     }
     
-    func showAlert() -> Void {
-        let alertController: UIAlertController = UIAlertController(title: "Out of Stock", message: "This item is unavailable. Please make another selection", preferredStyle: .alert)
+    func showAlertWith(title: String, message: String, style: UIAlertControllerStyle = .alert) -> Void {
+        let alertController: UIAlertController = UIAlertController(title: title, message: message, preferredStyle: style)
         
-        let okAction: UIAlertAction = UIAlertAction(title: "Ok", style: .default, handler: dismissAlert)
+        let okAction: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler: dismissAlert)
         alertController.addAction(okAction)
         
         present(alertController, animated: true, completion: nil)
