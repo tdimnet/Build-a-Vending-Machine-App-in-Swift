@@ -139,6 +139,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         updateDisplayWith(balance: 0, totalPrice: 0, itemPrice: 0, itemQuantity: 1)
     }
     
+    
+    @IBAction func depositFunds(_ sender: Any) {
+        vendingMachine.deposit(5.0)
+        updateDisplayWith(balance: vendingMachine.amountDeposited)
+    }
+    
     // MARK: UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
